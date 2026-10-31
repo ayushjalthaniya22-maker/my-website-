@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090713">
+<title>ZENVY — Connect. Share. Explore.</title>
+<style>
+:root{--bg:#090713;--panel:#151126;--panel2:#1d1733;--line:#30244e;--purple:#8b35ff;--pink:#d64dff;--text:#f7f2ff;--muted:#b4a9ce}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% 0%,#241044 0,transparent 38%),var(--bg);color:var(--text);font:15px Inter,system-ui,Arial,sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer;color:inherit;border:0}
+.app{max-width:1400px;margin:auto;display:grid;grid-template-columns:230px minmax(0,680px) 280px;gap:24px;padding:22px}
+.sidebar{position:sticky;top:16px;height:calc(100vh - 32px);display:flex;flex-direction:column;border-right:1px solid var(--line);padding-right:18px}
+.logo{font-size:30px;font-weight:900;letter-spacing:2px;margin:8px 0 35px;background:linear-gradient(90deg,#fff,#c66aff,#7d39ff);-webkit-background-clip:text;color:transparent;text-shadow:0 0 22px #9c36ff55}
+.nav{display:grid;gap:10px}.nav button{background:transparent;text-align:left;padding:14px;border-radius:14px;color:#ded4f3;font-size:16px}.nav button.active,.nav button:hover{background:linear-gradient(100deg,#721cff,#3b087d);box-shadow:0 5px 24px #8b35ff55}
+.premium{margin-top:auto;padding:18px;border:1px solid #7135c8;border-radius:18px;background:linear-gradient(145deg,#29104d,#130d24)}
+main{min-width:0}.top{display:flex;gap:12px;margin-bottom:20px}.search{flex:1;background:var(--panel);border:1px solid var(--line);padding:13px 16px;border-radius:16px;color:white;outline:none}
+.iconbtn,.secondary{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+.stories{display:flex;gap:15px;overflow:auto;padding:12px 4px 20px}.story{flex:0 0 76px;text-align:center;font-size:12px;color:var(--muted)}.ring{width:68px;height:68px;margin:0 auto 7px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#ff4fc8,#7d31ff,#ffb34d)}.ring img,.ring .plus{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--bg)}.plus{display:grid;place-items:center;background:#2b1151;font-size:32px;color:#dcaaff}
+.card{background:linear-gradient(145deg,#171228,#100d1c);border:1px solid var(--line);border-radius:20px;margin-bottom:20px;overflow:hidden}
+.composer{padding:16px}.composerrow{display:flex;gap:12px;align-items:center}.avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#39205d}.composer textarea{resize:vertical;min-height:44px;max-height:120px;flex:1;background:transparent;border:0;color:white;outline:none;padding:12px}
+.actionsrow{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px;margin-top:10px}.primary{background:linear-gradient(100deg,#a52dff,#6327ff);padding:11px 19px;border-radius:12px;font-weight:700}.posthead{display:flex;align-items:center;gap:11px;padding:15px 16px}.posthead .meta{flex:1}.muted{color:var(--muted);font-size:13px}.posttext{padding:0 16px 13px;font-size:16px}.postimage{display:block;width:100%;max-height:520px;object-fit:cover;background:#211637}.postfoot{display:flex;align-items:center;gap:18px;padding:12px 16px}.postfoot button{background:none;font-size:14px}.liked{color:#ff4e9b!important}.commentbox{display:flex;gap:8px;padding:0 16px 14px}.commentbox input{flex:1;min-width:0;background:#0d0a17;border:1px solid var(--line);border-radius:12px;padding:10px;color:white}.commentlist{padding:0 16px 12px;color:#ded5ef;font-size:13px}
+.right{position:sticky;top:18px;height:max-content}.right .card{padding:16px}.right h3{margin:0 0 14px}.trend{padding:9px 0;border-bottom:1px solid var(--line)}.trend:last-child{border:0}.trend b{display:block;color:#d49aff}.empty{text-align:center;color:var(--muted);padding:35px 10px}
+.mobilebar{display:none}.hidden{display:none!important}
+@media(max-width:1000px){.app{grid-template-columns:190px minmax(0,680px);}.right{display:none}}
+@media(max-width:650px){.app{display:block;padding:12px 12px 78px}.sidebar{display:none}.top{position:sticky;top:0;z-index:4;background:#090713;padding:8px 0}.logo{font-size:24px;margin:0 0 10px}.mobilelogo{display:block}.right{display:none}.mobilebar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:10;justify-content:space-around;padding:12px 5px calc(12px + env(safe-area-inset-bottom));background:#100b1d;border-top:1px solid var(--line)}.mobilebar button{background:none;font-size:21px}.mobilebar button.active{color:#c47bff}.postimage{max-height:430px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+<div class="logo">✦ ZENVY</div>
+<nav class="nav">
+<button class="active" data-view="home">⌂　Home</button><button data-view="explore">⌕　Explore</button><button data-view="reels">▣　Reels</button><button data-view="messages">✉　Messages</button><button data-view="notifications">♧　Notifications</button><button data-view="profile">◎　Profile</button>
+</nav>
+<div class="premium"><b>✦ Zenvy vibes</b><p class="muted">Your world. Your vibe.<br>Share a moment today.</p></div>
+</aside>
+<main>
+<div class="logo mobilelogo">✦ ZENVY</div>
+<div class="top"><input class="search" id="search" placeholder="⌕  Search Zenvy..."><button class="iconbtn" id="profileBtn">◎</button></div>
+<section class="stories" id="stories">
+<div class="story"><div class="ring"><div class="plus">+</div></div>Your story</div>
+<div class="story"><div class="ring"><img alt="" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=120&h=120&fit=crop"></div>Travel</div>
+<div class="story"><div class="ring"><img alt="" src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=120&h=120&fit=crop"></div>Nature</div>
+<div class="story"><div class="ring"><img alt="" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop"></div>Friends</div>
+<div class="story"><div class="ring"><img alt="" src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=120&h=120&fit=crop"></div>Night</div>
+</section>
+<section class="card composer">
+<div class="composerrow"><img class="avatar" alt="Your avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"><textarea id="caption" placeholder="What's on your mind?"></textarea></div>
+<div class="actionsrow"><label class="secondary">＋ Photo <input id="photo" type="file" accept="image/*" hidden></label><span class="muted" id="fileName">Share a moment</span><button class="primary" id="publish">Post</button></div>
+</section>
+<div id="feed"></div>
+<section class="card empty hidden" id="otherView"></section>
+</main>
+<aside class="right">
+<section class="card"><h3>Trending today ✦</h3><div class="trend"><b>#Zenvy</b><span class="muted">A place for your vibe</span></div><div class="trend"><b>#GoodVibes</b><span class="muted">Share something positive</span></div><div class="trend"><b>#DreamBig</b><span class="muted">Make it happen</span></div><div class="trend"><b>#MyMoments</b><span class="muted">Little things matter</span></div></section>
+<section class="card"><h3>Welcome to Zenvy 💜</h3><p class="muted">A fresh space to share photos and moments. Be kind, be creative, be you.</p></section>
+</aside>
+</div>
+<nav class="mobilebar"><button class="active" data-view="home">⌂</button><button data-view="explore">⌕</button><button data-view="create">＋</button><button data-view="reels">▣</button><button data-view="profile">◎</button></nav>
+<script>
+const feed=document.getElementById('feed'), caption=document.getElementById('caption'), photo=document.getElementById('photo');
+let selectedImage='', posts=[];
+const starter=[
+ {name:'Zenvy Community',time:'Welcome post',text:'Welcome to ZENVY 💜 Your world. Your vibe. Share your first moment with the community!',image:'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1200&auto=format&fit=crop',likes:12,comments:['This looks beautiful!']}
+];
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){feed.innerHTML='';[...posts].reverse().forEach((p,i)=>{const actual=posts.length-1-i;const el=document.createElement('article');el.className='card';el.innerHTML=`<div class="posthead"><img class="avatar" alt="" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"><div class="meta"><b>${safe(p.name||'You')}</b><div class="muted">${safe(p.time||'Just now')} · Public</div></div><span class="muted">•••</span></div><div class="posttext">${safe(p.text)}</div>${p.image?`<img class="postimage" src="${p.image}" alt="Post image">`:''}<div class="postfoot"><button class="${p.liked?'liked':''}" data-like="${actual}">${p.liked?'♥':'♡'}　${p.likes||0}</button><button data-focus="${actual}">▢　${p.comments.length} comments</button><button data-share="${actual}">↗　Share</button></div><div class="commentlist">${p.comments.map(c=>`<p>💬 ${safe(c)}</p>`).join('')}</div><div class="commentbox"><input id="comment-${actual}" placeholder="Write a comment..."><button class="primary" data-comment="${actual}">Send</button></div>`;feed.appendChild(el)})}
+document.getElementById('publish').onclick=()=>{const text=caption.value.trim();if(!text&&!selectedImage){alert('Write something or choose a photo first.');return}posts.push({name:'You',time:'Just now',text,image:selectedImage,likes:0,liked:false,comments:[]});caption.value='';selectedImage='';photo.value='';document.getElementById('fileName').textContent='Share a moment';render()};
+photo.onchange=()=>{const f=photo.files[0];if(!f)return;if(!f.type.startsWith('image/')){alert('Please choose an image file.');return}if(f.size>5*1024*1024){alert('Please choose an image under 5 MB.');photo.value='';return}const r=new FileReader();r.onload=()=>{selectedImage=r.result;document.getElementById('fileName').textContent=f.name};r.readAsDataURL(f)};
+feed.onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=Number(b.dataset.like??b.dataset.comment??b.dataset.focus??b.dataset.share);if(b.dataset.like!==undefined){posts[i].liked=!posts[i].liked;posts[i].likes+=posts[i].liked?1:-1;render()}else if(b.dataset.comment!==undefined){const input=document.getElementById('comment-'+i),v=input.value.trim();if(v){posts[i].comments.push(v);render()}}else if(b.dataset.share!==undefined){const url=location.href;if(navigator.share)navigator.share({title:'ZENVY',text:posts[i].text,url}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));else alert('Share this page link with a friend.')}};
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{const v=b.dataset.view;document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));if(v==='create'){caption.focus();window.scrollTo({top:0,behavior:'smooth'});return}if(v==='home'){feed.classList.remove('hidden');document.getElementById('otherView').classList.add('hidden')}else{feed.classList.add('hidden');const o=document.getElementById('otherView');o.classList.remove('hidden');o.innerHTML=`<h2>${v[0].toUpperCase()+v.slice(1)}</h2><p>This ${v} section is part of the ZENVY starter design. More features can be connected next.</p>`}});
+document.getElementById('profileBtn').onclick=()=>document.querySelector('[data-view="profile"]').click();
+document.getElementById('search').oninput=e=>{const q=e.target.value.toLowerCase();[...feed.children].forEach(card=>card.classList.toggle('hidden',!card.innerText.toLowerCase().includes(q)))};
+render();
+</script>
+</body>
+</html>
